@@ -6,6 +6,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { login } from '../actions/userActions'
+import axios from 'axios'
 
 const LoginScreen = ({ location, history }) => {
   const [email, setEmail] = useState('')
@@ -24,9 +25,15 @@ const LoginScreen = ({ location, history }) => {
     }
   }, [history, userInfo, redirect])
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault()
     dispatch(login(email, password))
+
+    const dataToSubmit = {
+      email
+    }
+
+    await axios.post("/api/sendMail", dataToSubmit)
   }
 
   return (
@@ -55,7 +62,7 @@ const LoginScreen = ({ location, history }) => {
           />
         </Form.Group>
 
-        <Button type='submit' variant='primary'>
+        <Button type='submit' onClick={submitHandler} variant='primary'>
           Sign In
         </Button>
       </Form>
