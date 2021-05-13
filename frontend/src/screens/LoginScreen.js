@@ -6,42 +6,6 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import FormContainer from '../components/FormContainer'
 import { login } from '../actions/userActions'
-import axios from "axios";
-
-const nodemailer = require("nodemailer");
-
-async function main() {
-
-  let transporter = nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
-    port: 587,
-    secure: false,
-    auth: {
-      user: 'vitalik.trick2001@gmail.com',
-      pass: '17052001',
-    },
-    tls:{
-      rejectUnauthorized:false
-    }
-  })
-
-  let mailOptions = {
-    from: 'vitalik.trick2001@gmail.com', // sender address
-    to: "vitalii.kenyiz@ukma.edu.ua", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>", // html body
-  }
-
-  // send mail with defined transport object
-  await transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return console.log(error);
-    }
-    console.log('Message sent: %s', info.message);
-  })
-
-}
 
 const LoginScreen = ({ location, history }) => {
   const [email, setEmail] = useState('')
@@ -60,20 +24,9 @@ const LoginScreen = ({ location, history }) => {
     }
   }, [history, userInfo, redirect])
 
-  const submitHandler = async (e) => {
+  const submitHandler = (e) => {
     e.preventDefault()
     dispatch(login(email, password))
-    await main()
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    const dataSubmit = {
-      email
-    }
-
-    axios.post("api/sendMail", dataSubmit)
   }
 
   return (
@@ -102,7 +55,7 @@ const LoginScreen = ({ location, history }) => {
           />
         </Form.Group>
 
-        <Button type='submit'  onClick={handleSubmit} variant='primary'>
+        <Button type='submit' variant='primary'>
           Sign In
         </Button>
       </Form>
