@@ -1,5 +1,4 @@
 import mailer from 'nodemailer'
-//import {Hello} from "./helloTemplate.js";
 import hbs from 'nodemailer-express-handlebars'
 import path from "path";
 
@@ -16,36 +15,36 @@ const getEmailData = (to, name, template) =>{
                 template: 'index',
                 attachments: [
                     {
-                        filename: '29241521207598269.jpg',
-                        path: path.resolve('backend/notifications/images/29241521207598269.jpg'),
+                        filename: 'manager.jpg',
+                        path: path.resolve('backend/notifications/images/manager.jpg'),
                         cid: 'first'
                     },
                     {
-                        filename: '51621521206431413.png',
-                        path: path.resolve('backend/notifications/images/51621521206431413.png'),
+                        filename: 'logo.png',
+                        path: path.resolve('backend/notifications/images/logo.png'),
                         cid: 'second'
                     },
                     {
-                        filename: '93491522393929597.png',
-                        path: path.resolve('backend/notifications/images/93491522393929597.png'),
+                        filename: 'background.png',
+                        path: path.resolve('backend/notifications/images/background.png'),
                         cid: 'third'
                     },
                     {
-                        filename: 'facebook-circle-white.png',
-                        path: path.resolve('backend/notifications/images/facebook-circle-white.png'),
+                        filename: 'facebook.png',
+                        path: path.resolve('backend/notifications/images/facebook.png'),
                         cid: 'facebook'
                     },
                     {
-                        filename: 'instagram-circle-white.png',
-                        path: path.resolve('backend/notifications/images/instagram-circle-white.png'),
+                        filename: 'instagram.png',
+                        path: path.resolve('backend/notifications/images/instagram.png'),
                         cid: 'inst'
                     },{
-                        filename: 'linkedin-circle-white.png',
-                        path: path.resolve('backend/notifications/images/linkedin-circle-white.png'),
+                        filename: 'linkedin.png',
+                        path: path.resolve('backend/notifications/images/linkedin.png'),
                         cid: 'linkedin'
                     },{
-                        filename: 'twitter-circle-white.png',
-                        path: path.resolve('backend/notifications/images/twitter-circle-white.png'),
+                        filename: 'twitter.png',
+                        path: path.resolve('backend/notifications/images/twitter.png'),
                         cid: 'twitter'
                     },
 
@@ -82,7 +81,7 @@ export default function sendEmail (to, name, type) {
 
     const mail = getEmailData(to, name, type)
 
-    smtpTransport.sendMail(mail, function (error, response) {
+    smtpTransport.sendMail(mail, function (error) {
         if (error) {
             console.log(error)
         } else {

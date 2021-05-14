@@ -9,7 +9,7 @@ import FormContainer from '../components/FormContainer'
 import { listProductDetails, updateProduct } from '../actions/productActions'
 import { PRODUCT_UPDATE_RESET } from '../constants/productConstants'
 
-const ProductEditScreen = ({ match, history }) => {
+const ProductEditPage = ({ match, history }) => {
   const productId = match.params.id
 
   const [name, setName] = useState('')
@@ -193,4 +193,4 @@ const ProductEditScreen = ({ match, history }) => {
   )
 }
 
-export default ProductEditScreen
+export default ProductEditPage

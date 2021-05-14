@@ -6,7 +6,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { listOrders } from '../actions/orderActions'
 
-const OrderListScreen = ({ history }) => {
+const OrderListPage = ({ history }) => {
   const dispatch = useDispatch()
 
   const orderList = useSelector((state) => state.orderList)
@@ -80,4 +80,4 @@ const OrderListScreen = ({ history }) => {
   )
 }
 
-export default OrderListScreen
+export default OrderListPage

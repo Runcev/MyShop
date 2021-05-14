@@ -16,7 +16,7 @@ import {
   ORDER_DELIVER_RESET,
 } from '../constants/orderConstants'
 
-const OrderScreen = ({ match, history }) => {
+const OrderPage = ({ match, history }) => {
   const orderId = match.params.id
 
   const [sdkReady, setSdkReady] = useState(false)
@@ -231,4 +231,4 @@ const OrderScreen = ({ match, history }) => {
   )
 }
 
-export default OrderScreen
+export default OrderPage

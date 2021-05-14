@@ -6,7 +6,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { listUsers, deleteUser } from '../actions/userActions'
 
-const UserListScreen = ({ history }) => {
+const UserListPage = ({ history }) => {
   const dispatch = useDispatch()
 
   const userList = useSelector((state) => state.userList)
@@ -88,4 +88,4 @@ const UserListScreen = ({ history }) => {
   )
 }
 
-export default UserListScreen
+export default UserListPage
