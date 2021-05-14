@@ -10,14 +10,12 @@ import productRoutes from './routes/productRoutes.js'
 import userRoutes from './routes/userRoutes.js'
 import orderRoutes from './routes/orderRoutes.js'
 import uploadRoutes from './routes/uploadRoutes.js'
-import bodyParser from "body-parser";
-import cookieParser from "cookie-parser";
-
 
 dotenv.config()
 
-connectDB()
 
+
+connectDB()
 const app = express()
 
 if (process.env.NODE_ENV === 'development') {
@@ -57,17 +55,7 @@ const PORT = process.env.PORT || 5000
 
 app.listen(
   PORT,
-  console.log(
-    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold ))
+  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold ))
 
 
 
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-app.use(cookieParser());
-
-app.post("/api/sendMail", (req, res) => {
-  console.log(req.body)
-
-  //sendMail()
-})
