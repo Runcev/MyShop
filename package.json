@@ -1,5 +1,5 @@
 {
-  "description": "MERN shopping cart app",
+  "description": "Shopping cart app",
   "main": "server.js",
   "type": "module",
   "scripts": {
