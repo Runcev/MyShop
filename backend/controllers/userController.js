@@ -21,8 +21,6 @@ const authUser = asyncHandler(async (req, res) => {
       token: generateToken(user._id),
     })
 
-    sendEmail('vitya.runcev@gmail.com', user.name, "hello");
-
   } else {
     res.status(401)
     throw new Error('Invalid email or password')
